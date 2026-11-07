@@ -261,7 +261,12 @@ folgt daraus, dass der erste Lauf bei $m=1$ beginnen muss und jeder
 Folgelauf durch das Ende des vorherigen festgelegt ist.
 \end{proof}
 
-\begin{bem}[Komplement und Lauffolge]\label{bem:komplement}
+\begin{bem}[Umkehrung und Komplement]\label{bem:komplement}
+Jede Bitfolge kann von rechts nach links ebenso wie von links nach
+rechts gelesen werden, ohne dass sich ihre Lauffolge ändert; ohne
+Beschränkung der Allgemeinheit lesen wir Folgen daher stets von links
+nach rechts. Der Beweis ist trivial und wird hier nicht ausgeführt.
+
 Zwei Bitfolgen besitzen genau dann dieselbe Lauffolge, wenn sie gleich
 oder binäre Komplemente voneinander sind: Die Lauffolge legt -- zusammen
 mit dem Bit des ersten Laufs -- wegen des alternierenden Aufbaus die
@@ -402,13 +407,15 @@ Lieferant solcher Bitfolgen zu sein, auch wenn es relativ langsam
 arbeitet. Darüber hinaus kann seine Arbeitsweise lückenlos nachgeprüft
 werden. Wir sammeln die Ausgabe von \texttt{/dev/random} über einen
 Zeitraum von etwa fünfzehn Monaten (13.\,November 2016 bis
-15.\,Februar 2018) mit einem Hintergrundskript, das stündlich genau
-einen Block von bis zu $1024$ Bytes entnimmt,
+15.\,Februar 2018) mit einem Hintergrundskript, das permanent läuft:
+Sobald $1024$ Bytes aus \texttt{/dev/random} gelesen sind, wird die
+Datei geschrieben und der nächste Block unmittelbar danach gelesen.
 \begin{quote}
 \verb|dd if=/dev/random of="$(date +%Y_%m_%d_%H_%M_%S)" bs=1024 count=1|
 \end{quote}
-(Kurze Lesezugriffe des Entropie-Pools ergeben gelegentlich kleinere
-Dateien.) Das Ergebnis sind $9\,856$ Dateien mit zusammen
+Das Skript ist eine Endlosschleife, die im Hintergrund läuft und bei
+jedem Systemstart automatisch gestartet wird. (Kurze Lesezugriffe des
+Entropie-Pools ergeben gelegentlich Dateien unter $1024$ Bytes.) Das Ergebnis sind $9\,856$ Dateien mit zusammen
 $9\,793\,146$ Bytes.\footnote{Nach Definition des Einschritttests
 zählt $l_1$ jedes Bit der Folge genau einmal; die
 Konsistenzbedingung $l_1=M=78\,345\,168$ ist in der Auswertung
@@ -1131,6 +1138,7 @@ gewohnten Ordnungsrelationen vergleichen. Wir nehmen die Elemente aus
 $B_5$. Das größte Element ist\footnote{Die Abstände in der Darstellung
 dienen lediglich der Lesbarkeit und haben keinerlei Bedeutung für den
 Inhalt.}
+(In der Binärdarstellung steht das höchstwertige Bit links.)
 \begin{equation}
   11111\ 0\ 111\ 0\ 11\ 0\ 11\ 0
 \end{equation}
