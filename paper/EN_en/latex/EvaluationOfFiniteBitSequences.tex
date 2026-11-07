@@ -266,13 +266,18 @@ each block is a run in the sense of the definition. Uniqueness
 follows because the first run must begin at $m=1$ and every
 subsequent run is determined by the end of its predecessor.
 \end{proof}
+\begin{bem}[Reversal and complement]\label{bem:komplement}
+Every bit sequence can be read from right to left as well as from
+left to right without changing its run-length sequence; without loss
+of generality we therefore always read sequences from left to right.
+The proof is trivial and will not be carried out here.
 
-\begin{bem}[Complement and run-length sequence]\label{bem:komplement}
-Two bit sequences possess the same run-length sequence if and only if
-they are equal or binary complements of each other: together with the
-bit of the first run, the run-length sequence determines the bit
-sequence uniquely because of the alternating construction, and
-passing to the complement changes only that single bit.
+Furthermore, two bit sequences possess the same run-length sequence
+if and only if they are equal or binary complements of each other:
+together with the bit of the first run, the run-length sequence
+determines the bit sequence uniquely because of the alternating
+construction, and passing to the complement changes only that single
+bit.
 \end{bem}
 
 \noindent Since only the lengths of the runs enter all frequency
@@ -406,13 +411,16 @@ notoriously good supplier of such bit sequences, even though it works
 rather slowly. Moreover, its way of operating can be verified
 without gaps. We collected the output of \texttt{/dev/random} over a
 period of about fifteen months (November 13, 2016, to February 15,
-2018) with a background script which hourly takes exactly one block
-of up to $1024$ bytes,
+2018) with a background script which runs permanently: as soon as
+$1024$ bytes have been read from \texttt{/dev/random}, the file is
+written and the next block is read immediately after.
 \begin{quote}
 \verb|dd if=/dev/random of="$(date +%Y_%m_%d_%H_%M_%S)" bs=1024 count=1|
 \end{quote}
-(Short read accesses of the entropy pool occasionally result in
-smaller files.) The result are $9\,856$ files totalling
+The script is an endless loop that runs in the background and starts
+automatically at every system power-on. (Short read accesses of the
+entropy pool occasionally result in files smaller than $1024$
+bytes.) The result are $9\,856$ files totalling
 $9\,793\,146$ bytes.\footnote{By the definition of the one-step test,
 $l_1$ counts every bit of the sequence exactly once; the consistency
 condition $l_1=M=78\,345\,168$ is checked automatically during the
@@ -573,10 +581,10 @@ cumulated distributions:
 Having fixed the basic definitions, we can turn to the study of the
 elements of an arbitrary $B_N$. Starting from the definition of the
 exponentially decreasing cumulated distribution, one may investigate
-whether the distribution of the frequencies of its runs without
-sub-runs follows a systematics. We thus subtract, from each frequency
+whether the distribution of the frequencies of its runs \emph{without
+sub-runs} follows a systematics. We thus subtract, from each frequency
 of the cumulated distribution $_NL$, the already offset sub-runs;
-the result we call the base distribution.
+the result we call the \emph{base distribution}.
 
 \begin{defi}[Base distribution]\label{defi:grundverteilung}
 Let $(b_m)\in\mathcal B$ be a bit sequence with run-length sequence
@@ -949,7 +957,7 @@ Remark~\ref{bem:gesamtlaenge}, $({}_{N-1}b_m)$ has $2^{N-2}$ bits,
 the extension adds $2^{N-3}$ bits, and the new runs add another
 $2^{N-3}$ bits, hence
 \begin{equation*}
-  l'_1=2^{N-2}+2^{N-3}+2^{N-3}=2^{N-1}=2^{N-1}.
+  l'_1=2^{N-2}+2^{N-3}+2^{N-3}=2^{N-1}.
 \end{equation*}
 The longest run has length $N$ (extension of the run of length
 $N-1$), and $l'_n=2^{N-n}$ holds for all $1\leq n\leq N$; the result
@@ -1046,7 +1054,7 @@ composition is thus consistent with the binary representation
 \begin{equation}
   B=101010101_2=341_{10}
 \end{equation}
-in the following table:
+in Table \ref{tab:zusammengesetzt}
 \begin{table}[htbp]
 \centering
 \begin{tabular}{rcccccccccc}
@@ -1131,6 +1139,8 @@ and compare it with any other bit sequence by the usual order
 relations. We take the elements of $B_5$. The largest element
 is\footnote{The spaces in the representation serve readability only
 and have no bearing on the content.}
+(In the binary representation the most significant bit stands on
+the left.)
 \begin{equation}
   11111\ 0\ 111\ 0\ 11\ 0\ 11\ 0
 \end{equation}
