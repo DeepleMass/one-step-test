@@ -770,10 +770,17 @@ from above this share is subtracted before an own run of length $N-1$
 could become free.
 \end{bem}
 
+\begin{defi}[Sum $T_m$]\label{defi:summenidentitaet}
+For all $m\geq 0$, let
+\begin{equation}\label{eqn:summenidentitaet}
+  T_m:=\sum_{k=1}^{m} k\cdot 2^{m-k}.
+\end{equation}
+\end{defi}
+
 \begin{lemma}[Sum identity]\label{lem:summenidentitaet}
 For all $m\geq 0$,
-\begin{equation}\label{eqn:summenidentitaet}
-  T_m:=\sum_{k=1}^{m} k\cdot 2^{m-k}=2^{m+1}-m-2.
+\begin{equation}\label{eqn:summenwert}
+  T_m=2^{m+1}-m-2.
 \end{equation}
 \end{lemma}
 
