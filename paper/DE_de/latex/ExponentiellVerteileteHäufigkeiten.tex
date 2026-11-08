@@ -190,9 +190,9 @@ Auswertung ist unabhängig von der speziellen Quelle; wir greifen
 heraus, deren Zustandekommen nicht kausal erklärt werden soll.
 
 Die erkenntnistheoretische Rahmung folgt Popper \cite{popper1935}.
-Auf die Frage, ob und in welchem Sinne die Klassen $B_N$ den
-wahrscheinlichkeitstheoretischen Zufallsbegriff ersetzen können, kommen
-wir in Abschnitt~\ref{sec:diskussion} zurück.
+Wir diskutieren das Verhältnis der Klassen $B_N$ zum
+wahrscheinlichkeitstheoretischen Zufallsbegriff in
+Abschnitt~\ref{sec:diskussion}.
 
 %-----------------------------------------------------
 % 3  Grundlagen: Läufe und Teilläufe
@@ -781,6 +781,16 @@ Für alle $m\geq 0$ gilt
 \end{equation}
 \end{lemma}
 
+\begin{bem}
+Der geschlossene Ausdruck von $T_m$ ist eine klassische
+arithmetisch-geometrische Reihe (vgl.~\cite{knuth1997}). Der
+spezifische Beitrag dieser Arbeit ist nicht der Reihenwert selbst,
+sondern seine Rolle als Längenbilanz der Klassenvertreter: Er zeigt,
+dass jeder Vertreter von $B_{N+1}$ exakt $2^{N}$ Bits besitzt
+(vgl.~die Bemerkung zur Gesamtlänge) und begründet damit die
+Zusammensetzung in Abschnitt~\ref{sec:zusammengesetzt}.
+\end{bem}
+
 \begin{proof}
 Induktion über $m$. Für $m=0$ ist die Summe leer und
 $T_0=0=2^{1}-0-2$. Im Schritt gilt
@@ -919,7 +929,7 @@ Eingabe: N, die Laenge des laengsten Laufs
 Lege einen leeren Bitvektor B an
 Haenge einen Lauf der Laenge N an
 fuer alle i von N-2 bis 1
-    haenge 2^(N-i-2) Laeufe der Laenge i an B an
+    haenge 2^(N-2-i) Laeufe der Laenge i an B an
 Gib B aus
 \end{lstlisting}
 \end{figure}
@@ -1173,6 +1183,15 @@ $B_5$ kein Element zwischen (\ref{eqn:b5kleinstemitseins}) und
 erahnen. Für die Zugehörigkeit zu $B_N$ ist diese Wiedererkennbarkeit
 jedoch ohne Belang; allein die Häufigkeitsverteilung der Läufe
 entscheidet.
+
+Im präzisen Sinne von Abschnitt~\ref{sec:zusammengesetzt} sind die
+erreichbaren Verteilungen exakt diejenigen, deren kumulierte
+Häufigkeiten $C_n$ die Band-Bedingung (\ref{eqn:logband}) erfüllen.
+Die Klassen $B_N$ und ihre Zusammensetzungen definieren damit eine
+eigentliche, explizit konstruierbare Teilmenge des Raumes aller
+Häufigkeitsverteilungen auf Lauflängen: sie ersetzen nicht den
+probabilistischen Zufallsbegriff, sondern zeichnen eine Familie
+aus, die exakt durch die Band-Ungleichung charakterisierbar ist.
 
 \begin{bem}[Kardinalität]\label{bem:kardinalitaet}
 Die Klassen $B_N$ sind groß. Ein Element aus $B_N$ ($N\geq 2$) ist

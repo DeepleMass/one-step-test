@@ -196,9 +196,8 @@ independent of the particular source; we single out
 sequences whose origin is not to be explained causally.
 
 The epistemological framing follows Popper \cite{popper1935}. We
-return to the question whether, and in which sense, the classes $B_N$
-can replace the probabilistic concept of randomness in
-Section~\ref{sec:diskussion}.
+discuss the relation between the classes $B_N$ and the
+probabilistic concept of randomness in Section~\ref{sec:diskussion}.
 
 %-----------------------------------------------------
 % 3  Foundations: runs and sub-runs
@@ -784,6 +783,15 @@ For all $m\geq 0$,
 \end{equation}
 \end{lemma}
 
+\begin{bem}
+The closed form of $T_m$ is a classical arithmetico-geometric series
+(cf.~\cite{knuth1997}). The contribution specific to this work is not
+the sum value itself but its role as the bit-length balance of the
+class representatives: it shows that every representative of $B_{N+1}$
+has exactly $2^{N}$ bits (cf.~the remark on total length) and thereby
+grounds the composition of Section~\ref{sec:zusammengesetzt}.
+\end{bem}
+
 \begin{proof}
 Induction over $m$. For $m=0$ the sum is empty and
 $T_0=0=2^{1}-0-2$. In the step,
@@ -922,7 +930,7 @@ Input: N, the length of the longest run
 create an empty bit vector B
 append a run of length N
 for all i from N-2 down to 1
-    append 2^(N-i-2) runs of length i to B
+    append 2^(N-2-i) runs of length i to B
 output B
 \end{lstlisting}
 \end{figure}
@@ -1174,6 +1182,15 @@ contains no element between (\ref{eqn:b5kleinstemitseins}) and
 \noindent A certain structure in the classes $B_N$ can thus be
 intuitively surmised. For membership in $B_N$ this recognisability is
 irrelevant; only the frequency distribution of the runs decides.
+
+In the precise sense of Section~\ref{sec:zusammengesetzt}, the
+achievable distributions are exactly those whose cumulated
+frequencies $C_n$ satisfy the band constraint (\ref{eqn:logband}).
+The classes $B_N$ and their compositions thus define a proper,
+explicitly constructible subset of the space of all frequency
+distributions on run lengths: they do not replace the probabilistic
+concept of randomness, but they single out a family that is exactly
+characterizable by the band inequality.
 
 \begin{bem}[Cardinality]\label{bem:kardinalitaet}
 The classes $B_N$ are large. An element of $B_N$ ($N\geq 2$) is
