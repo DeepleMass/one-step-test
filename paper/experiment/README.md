@@ -21,18 +21,20 @@ Dateien
 
 Datenbestand
 ------------
-  Der Originalbestand liegt im Repository unter dev/random:
-  9856 Dateien (9277 davon exakt 1024 Bytes, der Rest kurze Reads
-  des Entropie-Pools), zusammen 9.793.146 Bytes = 78.345.168 Bits,
-  Erhebungszeitraum 13.11.2016 bis 15.02.2018.
+  Der Bestand liegt im Repository one-step-test
+  (https://github.com/DeepleMass/one-step-test) unter dev/random:
+  2796 Dateien (2790 davon exakt 1024 Bytes, 6 kurze Reads des
+  Entropie-Pools mit 1001 bis 1014 Bytes), zusammen 2.863.002 Bytes
+  = 22.904.016 Bits, Erhebungszeitraum 14.04.2016 bis 13.11.2016.
 
 Ergebnis (python3 auswertung.py ../../dev/random)
 ------------------------------------------------
-  M = 78.345.168 Bits, laengster Lauf P = 25,
+  M = 22.904.016 Bits, laengster Lauf P = 23,
   l_1 = M exakt, Halbierungsreihe durchgehend,
   Chi-Quadrat-Anpassungstest der Laufverteilung gegen die
-  geometrische Verteilung: chi2 = 19,8 bei 22 Freiheitsgraden
-  (kritischer Wert zum Niveau 5%: 33,9),
-  Uebergangswahrscheinlichkeit p = 0,49994 +- 0,00006.
+  geometrische Verteilung: chi2 = 26,0 bei 21 Freiheitsgraden
+  (kritischer Wert zum Niveau 5%: 32,7),
+  Uebergangswahrscheinlichkeit p = 0,49994 +- 0,00010
+  (0,62 Standardabweichungen unter 1/2).
   Die graphische Darstellung (../DE_de/latex/haeufigkeiten.dat) wird im
   Paper per pgfplots direkt aus den Daten gezeichnet.

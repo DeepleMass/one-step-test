@@ -3,7 +3,8 @@
 % Build: xelatex -> bibtex -> xelatex -> xelatex
 % Bibliography: references.bib (biblatex, backend=bibtex)
 % English edition of the German original; the data set underlying
-% Section 5 is contained in the repository under dev/random.
+% Section 5 is contained in the repository one-step-test
+% (https://github.com/DeepleMass/one-step-test) under dev/random.
 %=====================================================================
 \documentclass[11pt,a4paper]{scrartcl}
 
@@ -409,8 +410,8 @@ sequence. Such an experimental means is the device
 notoriously good supplier of such bit sequences, even though it works
 rather slowly. Moreover, its way of operating can be verified
 without gaps. We collected the output of \texttt{/dev/random} over a
-period of about fifteen months (November 13, 2016, to February 15,
-2018) with a background script which runs permanently: as soon as
+period of about seven months (April 14, 2016, to November 13,
+2016) with a background script which runs permanently: as soon as
 $1024$ bytes have been read from \texttt{/dev/random}, the file is
 written and the next block is read immediately after.
 \begin{quote}
@@ -419,19 +420,20 @@ written and the next block is read immediately after.
 The script is an endless loop that runs in the background and starts
 automatically at every system power-on. (Short read accesses of the
 entropy pool occasionally result in files smaller than $1024$
-bytes.) The result are $9\,856$ files totalling
-$9\,793\,146$ bytes.\footnote{By the definition of the one-step test,
+bytes.) The result are $2\,796$ files totalling
+$2\,863\,002$ bytes.\footnote{By the definition of the one-step test,
 $l_1$ counts every bit of the sequence exactly once; the consistency
-condition $l_1=M=78\,345\,168$ is checked automatically during the
+condition $l_1=M=22\,904\,016$ is checked automatically during the
 evaluation. The data set as well as the collection and evaluation
-scripts are contained in the repository (\texttt{dev/random} and
-\texttt{paper/experiment}).}
+scripts are contained in the repository \texttt{one-step-test}
+(\url{https://github.com/DeepleMass/one-step-test}; \texttt{dev/random}
+and \texttt{paper/experiment}).}
 The result of this experimental procedure is a finite bit sequence
 whose length $M$ is determined by the experiment:
 \begin{equation}\label{eqn:bitfolgebeliebigerlaenge}
   (b_m)_{1\leq m\leq M<\infty},\quad b_m\in\{0,1\},
 \end{equation}
-with $M=78\,345\,168$ bits.
+with $M=22\,904\,016$ bits.
 
 \noindent As set out in Section~\ref{sec:grundlagen} on runs and
 sub-runs, we now view the sequence $(b_m)$ of
@@ -446,10 +448,10 @@ graphically in Figure~\ref{fig:haeufigkeiten}; the theoretical series
 shown there and in Table~\ref{tab:haeufigkeiten} is the expectation
 $l_n=M\cdot 2^{\,1-n}$ for independent, uniformly distributed bits. A
 chi-square goodness-of-fit test of the distribution of the run
-lengths against the geometric distribution yields $\chi^2=19.8$ at
-$22$ degrees of freedom (critical value at level $5\%$: $33.9$); the
+lengths against the geometric distribution yields $\chi^2=26.0$ at
+$21$ degrees of freedom (critical value at level $5\%$: $32.7$); the
 estimate of the transition probability
-$\hat p=0.49994\pm 0.00006$ lies $1.05$ standard deviations below
+$\hat p=0.49994\pm 0.00010$ lies $0.62$ standard deviations below
 $\tfrac12$. The survey is thus compatible with independent, uniformly
 distributed bits. In the spirit of the intersubjective verification of
 this experiment, the reader is expressly encouraged to reproduce it by
@@ -461,24 +463,24 @@ the means of his choice.
 \toprule
 length & frequency & $\log_2$ & expectation & length & frequency & $\log_2$ & expectation\\
 \midrule
-$1$&$78345168$&$26.22$&$78345168$&$13$&$19282$&$14.23$&$19127$\\
-$2$&$39177249$&$25.22$&$39172584$&$14$&$9588$&$13.23$&$9564$\\
-$3$&$19592313$&$24.22$&$19586292$&$15$&$4753$&$12.21$&$4782$\\
-$4$&$9798825$&$23.22$&$9793146$&$16$&$2364$&$11.21$&$2391$\\
-$5$&$4900914$&$22.22$&$4896573$&$17$&$1174$&$10.20$&$1195$\\
-$6$&$2451773$&$21.23$&$2448287$&$18$&$561$&$9.13$&$598$\\
-$7$&$1227083$&$20.23$&$1224143$&$19$&$248$&$7.95$&$299$\\
-$8$&$614018$&$19.23$&$612072$&$20$&$110$&$6.78$&$149$\\
-$9$&$307704$&$18.23$&$306036$&$21$&$50$&$5.64$&$75$\\
-$10$&$153948$&$17.23$&$153018$&$22$&$22$&$4.46$&$37$\\
-$11$&$76935$&$16.23$&$76509$&$23$&$11$&$3.46$&$19$\\
-$12$&$38572$&$15.24$&$38254$&$24$&$5$&$2.32$&$9$\\
+$1$&$22904016$&$24.45$&$22904016$&$13$&$5667$&$12.47$&$5592$\\
+$2$&$11453497$&$23.45$&$11452008$&$14$&$2932$&$11.52$&$2796$\\
+$3$&$5727688$&$22.45$&$5726004$&$15$&$1504$&$10.55$&$1398$\\
+$4$&$2863406$&$21.45$&$2863002$&$16$&$760$&$9.57$&$699$\\
+$5$&$1431317$&$20.45$&$1431501$&$17$&$395$&$8.63$&$349$\\
+$6$&$715604$&$19.45$&$715751$&$18$&$201$&$7.65$&$175$\\
+$7$&$357947$&$18.45$&$357875$&$19$&$103$&$6.69$&$87$\\
+$8$&$178887$&$17.45$&$178938$&$20$&$50$&$5.64$&$44$\\
+$9$&$89338$&$16.45$&$89469$&$21$&$19$&$4.25$&$22$\\
+$10$&$44657$&$15.45$&$44734$&$22$&$9$&$3.17$&$11$\\
+$11$&$22271$&$14.44$&$22367$&$23$&$1$&$0.00$&$5$\\
+$12$&$11152$&$13.45$&$11184$& & & &\\
 \bottomrule
 \end{tabular}
 \caption{Frequency $l_n$ of the runs and sub-runs of the output of
 \texttt{/dev/random}, computed from the complete data set
-($M=78\,345\,168$ bits in $9\,856$ files; the longest run has length
-$25$). The third column gives $\log_2 l_n$, the fourth the expectation
+($M=22\,904\,016$ bits in $2\,796$ files; the longest run has length
+$23$). The third column gives $\log_2 l_n$, the fourth the expectation
 $M\cdot 2^{\,1-n}$ (rounded) for independent, uniformly distributed
 bits.}
 \label{tab:haeufigkeiten}
@@ -492,7 +494,7 @@ bits.}
   height=8.5cm,
   xlabel={length $n$ of the (sub-)run},
   ylabel={$\log_2$ of the frequency $l_n$},
-  xmin=0, xmax=26.5,
+  xmin=0, xmax=24.5,
   grid=major,
   legend pos=north east,
   legend cell align=left,
@@ -1242,8 +1244,8 @@ chosen sequence.
 We have introduced, with the one-step test, an evaluation procedure
 for finite bit sequences which cumulates the frequencies of runs and
 sub-runs. The experimental application to the output of
-\texttt{/dev/random} ($78.3$ million bits, a collection period of
-about fifteen months) shows an exponentially decreasing course, as is
+\texttt{/dev/random} ($22.9$ million bits, a collection period of
+about seven months) shows an exponentially decreasing course, as is
 to be expected from the geometric distribution of the run lengths of
 independent bits; a chi-square goodness-of-fit test confirms this.
 The classes $B_N$ of bit sequences with exactly exponentially

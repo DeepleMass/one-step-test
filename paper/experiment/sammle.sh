@@ -5,13 +5,14 @@
 # /dev/random; der Dateiname ist der Zeitpunkt der Entnahme im
 # Format YYYY_MM_DD_HH_MM_SS (aus den vorliegenden Dateinamen
 # abgeleitet). Kurze Lesezugriffe des Entropie-Pools ergeben
-# gelegentlich kleinere Dateien (im Bestand: 9277 von 9856 Dateien
-# exakt 1024 Bytes, der Rest 3 bis 1023 Bytes).
+# gelegentlich kleinere Dateien (im Bestand: 2790 von 2796 Dateien
+# exakt 1024 Bytes, der Rest 6 kurze Reads mit 1001 bis 1014 Bytes).
 #
 # Aufruf: ./sammle.sh [zielverzeichnis]
 #
-# Der vorliegende Bestand (13.11.2016 bis 15.02.2018) liegt im
-# Repository unter dev/random.
+# Der vorliegende Bestand (14.04.2016 bis 13.11.2016) liegt im
+# Repository one-step-test (https://github.com/DeepleMass/one-step-test)
+# unter dev/random.
 
 set -eu
 
