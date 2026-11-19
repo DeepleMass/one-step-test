@@ -3,7 +3,7 @@
 #         make fast       (nur ein xelatex-Lauf)
 #         make clean      (Hilfsdateien entfernen)
 
-DOC = EvaluationOfFiniteBitSequences
+DOC = one-step-test
 
 .PHONY: all fast clean
 
