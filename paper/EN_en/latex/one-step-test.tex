@@ -501,9 +501,9 @@ bits.}
   legend cell align=left,
 ]
 \addplot[only marks, mark=*, mark size=1.4pt]
-  table[x=n, y=logl] {haeufigkeiten.dat};
+  table[x=n, y=logl] {cumulations.dat};
 \addplot[dashed, thick]
-  table[x=n, y=theo] {haeufigkeiten.dat};
+  table[x=n, y=theo] {cumulations.dat};
 \legend{measured frequency $l_n$,
         expectation $M\cdot 2^{\,1-n}$}
 \end{axis}
@@ -1289,7 +1289,7 @@ $B_{N+1}$ (Lemma~\ref{lem:konstruktion}), and that both variants of
 the one-step test yield identical results on pseudo-random bits
 (Lemma~\ref{lem:aequivalenz}).
 
-\lstinputlisting[language=Python,caption={einschritttest.py: reference implementation},label={lst:code}]{einschritttest.py}
+\lstinputlisting[language=Python,caption={one-step-test.py: reference implementation},label={lst:code}]{../../../scripts/one-step-test.py}
 
 %-----------------------------------------------------
 % Bibliography
